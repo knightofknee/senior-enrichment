@@ -9,7 +9,7 @@ const User = require('./user')
 const Student = require('./student')
 const Campus = require('./campus')
 
-Student.belongsTo(Campus)
+Student.belongsTo(Campus, {as: 'student'})
 
 Campus.hasMany(Student)
 

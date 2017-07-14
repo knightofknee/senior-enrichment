@@ -5,8 +5,10 @@ import history from './history'
 import Root from './components/Root'
 import Home from './components/Home'
 import EditRosters from './components/editRosters.js'
+import CampusDisplay from './components/campusDisplay.js'
 import { fetchStudents } from './reducers/students';
 import { fetchCampuses } from './reducers/campuses';
+
 
 class Routes extends Component {
 
@@ -21,6 +23,7 @@ class Routes extends Component {
         <Root>
           <Switch>
             <Route path="/edit" component={EditRosters} />
+            <Route path="/campuses/:id" component={CampusDisplay} />
             <Route path="/" component={Home} />
           </Switch>
         </Root>

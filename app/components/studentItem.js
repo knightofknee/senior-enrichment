@@ -12,7 +12,10 @@ class StudentItem extends Component {
   }
 
   render() {
-    const { student } = this.props
+    const { student, campuses } = this.props
+
+    const studentCampus = (campuses.find((campus) => {return (campus.id === student.campusId)})) || {id:1}
+    console.log('studentitemcampus', studentCampus)
     return (
       <div className="list-group-item min-content user-item">
         <div className="media">
@@ -25,6 +28,14 @@ class StudentItem extends Component {
             to={`/students/${student.id}`}>
             <h4 className="media-heading tucked">
               <span placeholder="Jean Doe">{student.name}</span>
+            </h4>
+          </NavLink>
+          <NavLink
+            className="media-body"
+            activeClassName="active"
+            to={`/campuses/${studentCampus.id}`}>
+            <h4 className="media-heading tucked">
+              <span placeholder="Jean Doe">{studentCampus.name}</span>
             </h4>
           </NavLink>
           <div className="media-right media-middle">
@@ -48,7 +59,8 @@ class StudentItem extends Component {
 
 const mapState = function(state) {
   return {
-    students: state.students
+    students: state.students,
+    campuses: state.campuses
   }
 }
 
