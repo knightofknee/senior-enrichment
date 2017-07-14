@@ -19,7 +19,10 @@ const users = [
 
 const seed = () =>
   Promise.all(students.map(student =>
-    Student.create(student))
+    {
+      console.log('creating student ... ')
+      Student.create(student)
+    })
   )
   .then(() =>
   Promise.all(campuses.map(campus =>

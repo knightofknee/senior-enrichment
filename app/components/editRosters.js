@@ -42,12 +42,14 @@ class EditRosters extends Component {
                   }
                 </select>
               </li>
+              <li>
+              <button
+                type="submit"
+                className="btn btn-warning btn-xs pull-right">
+                <span className="glyphicon glyphicon-plus" />
+              </button>
+            </li>
             </ul>
-            <button
-              type="submit"
-              className="btn btn-warning btn-xs pull-right">
-              <span className="glyphicon glyphicon-plus" />
-            </button>
           </form>
           {/*form section  */}
         {this.props.students.map((student) => <StudentItem student={student} key={student.id} />)
@@ -59,10 +61,10 @@ class EditRosters extends Component {
 
     onSubmit(event) {
     event.preventDefault();
-    console.log('submitt etar', event.target.title.value)
+    console.log('submitt etar', event.target.campusId.value)
     const student = {
+      name: event.target.title.value,
       campusId: event.target.campusId.value,
-      name: event.target.title.value
     };
     this.props.addStudent(student);
     event.target.campusId.value = '';

@@ -8,8 +8,11 @@ const { Student, Campus } = require('../db/models')
 api.get('/hello', (req, res) => res.send({hello: 'world'}))
 
 api.get('/students', (req, res, next) => {
+	console.log('got to student.findalll')
 	Student.findAll()
-	.then(students => res.json(students))
+	.then(students => {
+		console.log('in then -------------------------', students)
+		res.json(students)})
 	.catch(next)
 })
 api.get('/students/:id', (req, res, next) => {

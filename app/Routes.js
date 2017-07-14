@@ -35,8 +35,8 @@ const mapProps = null;
 
 const mapDispatch = dispatch => ({
   fetchInitialData: () => {
-    dispatch(fetchStudents());
     dispatch(fetchCampuses());
+    dispatch(fetchStudents());
     // what other data might we want to fetch on app load?
   }
 });

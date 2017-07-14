@@ -14,10 +14,9 @@ class StudentItem extends Component {
   render() {
     const { student, campuses } = this.props
 
-    console.log('student campus: ',student)
-
-    const studentCampus = (campuses.find((campus) => {return (campus.id === student.campusId)}))
-    console.log('student campus, in studentitem:', studentCampus)
+    let studentCampus = (campuses.find((campus) => {
+      return (campus.id === student.campusId)}))
+      if (!studentCampus) studentCampus = {id: 1}
     return (
       <div className="list-group-item min-content user-item">
         <div className="media">
@@ -37,7 +36,7 @@ class StudentItem extends Component {
             activeClassName="active"
             to={`/campuses/${studentCampus.id}`}>
             <h4 className="media-heading tucked">
-              <span placeholder="Jean Doe">{studentCampus}</span>
+              <span placeholder="Jean Doe">{studentCampus.name}</span>
             </h4>
           </NavLink>
           <div className="media-right media-middle">

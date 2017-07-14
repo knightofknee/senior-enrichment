@@ -13,7 +13,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1>home page yo </h1>
+        <h3>Campus List </h3>
         <div>
           {
             this.props.campuses

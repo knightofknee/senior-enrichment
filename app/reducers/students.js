@@ -44,6 +44,7 @@ export default function reducer (students = [], action) {
 
 
 export const fetchStudents = () => dispatch => {
+  console.log('in fetch students')
   axios.get('/api/students')
        .then(res => dispatch(init(res.data)));
 };

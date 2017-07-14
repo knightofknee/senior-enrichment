@@ -10,17 +10,27 @@ class CampusDisplay extends Component {
 
   render () {
     console.log('rendering CampusDisplay')
+    console.log(this.props.paramId)
     return (
       <div>
+        <h3>student__________________________________________campus</h3>
         {this.props.students.map((student) => <StudentItem student={student} key={student.id} />)
         }
-        <h1>individual campus</h1>
-        <h2>yo</h2>
       </div>
     )
   }
 }
-const mapState = ({ campuses, students }) => ({ campuses, students });
+const mapState = ({ campuses, students }, ownProps) => {
+  const paramId = Number(ownProps.match.params.id)
+  return {
+    campuses,
+    students,
+    paramId
+  }
+}
+
+
+// ({ campuses, students });
 
 const mapDispatch = {  };
 
