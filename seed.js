@@ -9,6 +9,7 @@ const students = [
 
 const campuses = [
   { name: 'Carl-dom' },
+  { name: 'Bri-dome' },
 ];
 
 const users = [

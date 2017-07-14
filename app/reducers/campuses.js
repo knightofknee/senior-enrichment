@@ -49,10 +49,13 @@ export const fetchCampuses = () => dispatch => {
 };
 
 // optimistic
-export const removeCampus = id => dispatch => {
-  dispatch(remove(id));
-  axios.delete(`/api/campuses/${id}`)
-       .catch(err => console.error(`Removing user: ${id} unsuccesful`, err));
+export const removeCampus = id => {
+  return dispatch => {
+    console.log('dc routesdfasdfsdaf', id)
+    dispatch(remove(id));
+    axios.delete(`/api/campuses/${id}`)
+        .catch(err => console.error(`Removing user: ${id} unsuccesful`, err));
+    }
 };
 
 export const addCampus = campus => dispatch => {
