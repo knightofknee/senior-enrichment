@@ -25,7 +25,7 @@ class Home extends Component {
   }
 }
 
-const mapState = ({ campuses }) => ({ campuses });
+const mapState = ({ campuses, students }) => ({ campuses, students });
 
 const mapDispatch = { addCampus };
 

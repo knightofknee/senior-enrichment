@@ -33,7 +33,7 @@ class EditRosters extends Component {
                 <span>by</span>
               </li>
               <li>
-                <select name="campus_id" defaultValue="" required>
+                <select name="campusId" defaultValue="" required>
                   <option value="" disabled>(select a campus)</option>
                   {
                     this.props.campuses.map(campus => (
@@ -61,11 +61,11 @@ class EditRosters extends Component {
     event.preventDefault();
     console.log('submitt etar', event.target.title.value)
     const student = {
-      campus_id: event.target.campus_id.value,
+      campusId: event.target.campusId.value,
       name: event.target.title.value
     };
     this.props.addStudent(student);
-    event.target.campus_id.value = '';
+    event.target.campusId.value = '';
     event.target.title.value = '';
   }
 }
@@ -73,8 +73,8 @@ const mapState = ({ campuses, students }) => ({ campuses, students });
 
 const mapDispatch = function(dispatch){
   return {
-    addStudent: function(id) {
-      return dispatch(addStudent(id))
+    addStudent: function(student) {
+      return dispatch(addStudent(student))
     }
   }
 };
